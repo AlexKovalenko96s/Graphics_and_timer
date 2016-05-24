@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 
 public class GraphicsPanel_up extends JPanel {
 	private static final long serialVersionUID = -289991420940970277L;
-
+	int x1,x2,x11,x22,y1,y2,y11,y22;
 	@Override
 	public void paintComponent(Graphics g) {
 
@@ -36,5 +36,8 @@ public class GraphicsPanel_up extends JPanel {
 		g2.fillOval(280, 190, 15, 15);// €блочко
 		g2.fillOval(310, 160, 15, 15);// €блочко
 		g2.fillOval(350, 200, 15, 15);// €блочко
+		g2.setColor(Color.BLACK);
+		g2.drawLine(x1, y1, x11, y11);
+		g2.drawLine(x2, y2, x22, y22);
 	}
 }

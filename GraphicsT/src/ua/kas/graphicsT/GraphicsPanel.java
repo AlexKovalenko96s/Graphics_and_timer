@@ -3,15 +3,17 @@ package ua.kas.graphicsT;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+
 import javax.swing.JPanel;
+
 
 public class GraphicsPanel extends JPanel {
 	private static final long serialVersionUID = 8934618451076187236L;
-
 	// private Line line1;
 	// private Line line2;
 	// private Rectangle rect;
 
+	int x1,x2,x11,x22,y1,y2,y11,y22;
 	public GraphicsPanel() {
 		// line1 = new Line(150, 10, 150, 200);
 		// line2 = new Line(85, 95, 275, 95);
@@ -46,7 +48,25 @@ public class GraphicsPanel extends JPanel {
 		g2.fillOval(280, 160, 15, 15);// €блочко
 		g2.fillOval(310, 130, 15, 15);// €блочко
 		g2.fillOval(350, 170, 15, 15);// €блочко
-
+		g2.setColor(Color.BLACK);
+		g2.drawLine(x1, y1, x11, y11);
+		g2.drawLine(x2, y2, x22, y22);
+		
+		
+//		
+//				g2.drawLine(500, 50, 510, 60);
+//				g2.drawLine(510, 60, 520, 50);
+//				t.schedule(new TimerTask() {
+//					@Override
+//					public void run() {
+//						g2.drawLine(450, 50, 460, 60);
+//						g2.drawLine(460, 60, 470, 50);
+//						t.schedule(new TimerTask() {
+//							@Override
+//							public void run() {
+//								g2.drawLine(400, 50, 460, 60);
+//								g2.drawLine(410, 60, 420, 50);
+							
 	}
 }
 

@@ -10,7 +10,7 @@ import java.util.TimerTask;
 
 import javax.swing.JFrame;
 
-public class Main {
+public class Main{
 
 	static JFrame f = new JFrame();
 	static Timer t = new Timer();
@@ -19,7 +19,20 @@ public class Main {
 	static GraphicsPanel_right graphicsPanel_right = new GraphicsPanel_right();
 	static GraphicsPanel_up graphicsPanel_up = new GraphicsPanel_up();
 	static GraphicsPanel_down graphicsPanel_down = new GraphicsPanel_down();
-
+	static Boolean up = false;
+	static Boolean down = false;
+	static int x1=500;
+	static int y1=50;
+	static int x11=510;
+	static int y11=60;
+	
+	static int x2=510;
+	static int y2=60;
+	static int x22=520;
+	static int y22=50;
+	
+	static int i = 1;
+	
 	public static void main(String[] args) {
 
 		f.setTitle("Try!");
@@ -63,16 +76,38 @@ public class Main {
 									graphicsPanel.setVisible(false);
 									if (e.getKeyCode() == KeyEvent.VK_DOWN) {
 										graphicsPanel_down.setVisible(true);
+										down = true;
+										up = false;
+										graphicsPanel_down.x1=x1-20*i;
+										graphicsPanel_down.x11=x11-20*i;
+										graphicsPanel_down.x2=x2-20*i;
+										graphicsPanel_down.x22=x22-20*i;
 									}
 									if (e.getKeyCode() == KeyEvent.VK_UP) {
 										graphicsPanel_up.setVisible(true);
+										up = true;
+										down = false;
+										graphicsPanel_up.setVisible(true);
+										graphicsPanel_down.x1=x1-20*i;
+										graphicsPanel_down.x11=x11-20*i;
+										graphicsPanel_down.x2=x2-20*i;
+										graphicsPanel_down.x22=x22-20*i;
 									}
 									if (e.getKeyCode() == KeyEvent.VK_LEFT) {
 										graphicsPanel_left.setVisible(true);
+										graphicsPanel_left.x1=x1-20*i;
+										graphicsPanel_left.x11=x11-20*i;
+										graphicsPanel_left.x2=x2-20*i;
+										graphicsPanel_left.x22=x22-20*i;
 									}
 									if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
 										graphicsPanel_right.setVisible(true);
+										graphicsPanel_right.x1=x1-20*i;
+										graphicsPanel_right.x11=x11-20*i;
+										graphicsPanel_right.x2=x2-20*i;
+										graphicsPanel_right.x22=x22-20*i;
 									}
+									i++;
 									wait_kachka();
 								}
 							}, 1000);
@@ -81,6 +116,7 @@ public class Main {
 
 				}
 				if (graphicsPanel.isVisible() == true) {
+					
 					t.schedule(new TimerTask() {
 
 						@Override
@@ -89,16 +125,39 @@ public class Main {
 
 							if (e.getKeyCode() == KeyEvent.VK_DOWN) {
 								graphicsPanel_down.setVisible(true);
+								graphicsPanel_down.x1=x1-20*i;
+								graphicsPanel_down.x11=x11-20*i;
+								graphicsPanel_down.x2=x2-20*i;
+								graphicsPanel_down.x22=x22-20*i;
+								down = true;
+								up = false;
 							}
 							if (e.getKeyCode() == KeyEvent.VK_UP) {
 								graphicsPanel_up.setVisible(true);
+								graphicsPanel_down.x1=x1-20*i;
+								graphicsPanel_down.x11=x11-20*i;
+								graphicsPanel_down.x2=x2-20*i;
+								graphicsPanel_down.x22=x22-20*i;
+								up = true;
+								down = false;
+								
 							}
 							if (e.getKeyCode() == KeyEvent.VK_LEFT) {
 								graphicsPanel_left.setVisible(true);
+								graphicsPanel_left.x1=x1-20*i;
+								graphicsPanel_left.x11=x11-20*i;
+								graphicsPanel_left.x2=x2-20*i;
+								graphicsPanel_left.x22=x22-20*i;
 							}
 							if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
 								graphicsPanel_right.setVisible(true);
+								graphicsPanel_right.x1=x1-20*i;
+								graphicsPanel_right.x11=x11-20*i;
+								graphicsPanel_right.x2=x2-20*i;
+								graphicsPanel_right.x22=x22-20*i;
 							}
+							
+							i++;
 							wait_kachka();
 						}
 					}, 1000);
@@ -106,6 +165,15 @@ public class Main {
 				f.setVisible(true);
 			}
 		});
+		graphicsPanel.x1=x1;
+		graphicsPanel.y1=y1;
+		graphicsPanel.x11=x11;
+		graphicsPanel.y11=y11;
+		
+		graphicsPanel.x2=x2;
+		graphicsPanel.y2=y2;
+		graphicsPanel.x22=x22;
+		graphicsPanel.y22=y22;
 		f.setVisible(true);
 	}
 	
@@ -114,39 +182,86 @@ public class Main {
 
 			@Override
 			public void run() {
+				
 				graphicsPanel_down.setVisible(false);
 				graphicsPanel_up.setVisible(false);
 				graphicsPanel_left.setVisible(false);
 				graphicsPanel_right.setVisible(false);
 				graphicsPanel.setVisible(true);
-
+				graphicsPanel.x1=x1-20*i;
+				graphicsPanel.x11=x11-20*i;
+				graphicsPanel.x2=x2-20*i;
+				graphicsPanel.x22=x22-20*i;
+				i++;
 				t.schedule(new TimerTask() {
 
 					@Override
 					public void run() {
-						graphicsPanel.setVisible(false);
-						graphicsPanel_up.setVisible(true);
-
+						if(up!=true && down == true){
+							graphicsPanel.setVisible(false);
+							graphicsPanel_up.setVisible(true);
+							graphicsPanel_up.x1=x1-20*i;
+							graphicsPanel_up.x11=x11-20*i;
+							graphicsPanel_up.x2=x2-20*i;
+							graphicsPanel_up.x22=x22-20*i;
+						}
+						if(up==true && down != true){
+							graphicsPanel.setVisible(false);
+							graphicsPanel_down.setVisible(true);
+							graphicsPanel_down.x1=x1-20*i;
+							graphicsPanel_down.x11=x11-20*i;
+							graphicsPanel_down.x2=x2-20*i;
+							graphicsPanel_down.x22=x22-20*i;
+						}
+						
+						i++;
 						t.schedule(new TimerTask() {
 
 							@Override
 							public void run() {
 								graphicsPanel.setVisible(true);
 								graphicsPanel_up.setVisible(false);
-
+								graphicsPanel_down.setVisible(false);
+								graphicsPanel.x1=x1-20*i;
+								graphicsPanel.x11=x11-20*i;
+								graphicsPanel.x2=x2-20*i;
+								graphicsPanel.x22=x22-20*i;
+								i++;
+								
 								t.schedule(new TimerTask() {
-
+									
 									@Override
 									public void run() {
-										graphicsPanel.setVisible(false);
-										graphicsPanel_down.setVisible(true);
-
+										if(up==true && down != true){
+											graphicsPanel.setVisible(false);
+											graphicsPanel_up.setVisible(true);
+											graphicsPanel_up.x1=x1-20*i;
+											graphicsPanel_up.x11=x11-20*i;
+											graphicsPanel_up.x2=x2-20*i;
+											graphicsPanel_up.x22=x22-20*i;
+										}
+										if(up!=true && down == true){
+											graphicsPanel.setVisible(false);
+											graphicsPanel_down.setVisible(true);
+											graphicsPanel_down.x1=x1-20*i;
+											graphicsPanel_down.x11=x11-20*i;
+											graphicsPanel_down.x2=x2-20*i;
+											graphicsPanel_down.x22=x22-20*i;
+										}
+										i++;
+										
 										t.schedule(new TimerTask() {
 
 											@Override
 											public void run() {
 												graphicsPanel.setVisible(true);
 												graphicsPanel_down.setVisible(false);
+												graphicsPanel_up.setVisible(false);
+												graphicsPanel.x1=x1-20*i;
+												graphicsPanel.x11=x11-20*i;
+												graphicsPanel.x2=x2-20*i;
+												graphicsPanel.x22=x22-20*i;
+												i++;
 											}
 										}, 800);
 									}

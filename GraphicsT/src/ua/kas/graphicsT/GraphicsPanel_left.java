@@ -11,7 +11,7 @@ public class GraphicsPanel_left extends JPanel {
 	// private Line line1;
 	// private Line line2;
 	// private Rectangle rect;
-
+	int x1,x2,x11,x22,y1,y2,y11,y22;
 	public GraphicsPanel_left() {
 		// line1 = new Line(150, 10, 150, 200);
 		// line2 = new Line(85, 95, 275, 95);
@@ -46,7 +46,9 @@ public class GraphicsPanel_left extends JPanel {
 		g2.fillOval(310, 160, 15, 15);// €блочко
 		g2.fillOval(340, 130, 15, 15);// €блочко
 		g2.fillOval(380, 170, 15, 15);// €блочко
-
+		g2.setColor(Color.BLACK);
+		g2.drawLine(x1, y1, x11, y11);
+		g2.drawLine(x2, y2, x22, y22);
 	}
 }
 
