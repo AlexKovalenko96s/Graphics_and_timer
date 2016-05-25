@@ -32,10 +32,10 @@ public class GraphicsPanel_right extends JPanel {
 		g2.setColor(Color.ORANGE);
 		g2.fillOval(170, 230, 240, 80);// остров
 		g2.setColor(Color.YELLOW);
-		g2.fillOval(30, 60, 80, 80);// солнышко
+		g2.fillOval(60, 60, 80, 80);// солнышко
 		g2.setColor(Color.WHITE);
-		g2.fillOval(10, 95, 70, 70);// облако(круглое)
-		g2.fillOval(10, 120, 200, 50);// облако(длинное)
+		g2.fillOval(40, 95, 70, 70);// облако(круглое)
+		g2.fillOval(40, 120, 200, 50);// облако(длинное)
 		g2.setColor(Color.GRAY);
 		g2.fillRoundRect(280, 140, 20, 120, 5, 5);// ствол
 		g2.setColor(Color.GREEN);

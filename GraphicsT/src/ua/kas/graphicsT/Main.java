@@ -131,6 +131,10 @@ public class Main{
 								graphicsPanel_down.x11=x11-20*i;
 								graphicsPanel_down.x2=x2-20*i;
 								graphicsPanel_down.x22=x22-20*i;
+								graphicsPanel_down.y1=y1-20;
+								graphicsPanel_down.y11=y11-20;
+								graphicsPanel_down.y2=y2-20;
+								graphicsPanel_down.y22=y22-20;
 								down = true;
 								up = false;
 								left = false;
@@ -142,6 +146,10 @@ public class Main{
 								graphicsPanel_up.x11=x11-20*i;
 								graphicsPanel_up.x2=x2-20*i;
 								graphicsPanel_up.x22=x22-20*i;
+								graphicsPanel_up.y1=y1+20;
+								graphicsPanel_up.y11=y11+20;
+								graphicsPanel_up.y2=y2+20;
+								graphicsPanel_up.y22=y22+20;
 								up = true;
 								down = false;
 								left = false;
@@ -188,16 +196,6 @@ public class Main{
 		graphicsPanel.x22=x22;
 		graphicsPanel.y22=y22;
 		
-		graphicsPanel_up.y1=y1;
-		graphicsPanel_up.y11=y11;
-		graphicsPanel_up.y2=y2;
-		graphicsPanel_up.y22=y22;
-		
-		graphicsPanel_down.y1=y1;
-		graphicsPanel_down.y11=y11;
-		graphicsPanel_down.y2=y2;
-		graphicsPanel_down.y22=y22;
-		
 		graphicsPanel_left.y1=y1;
 		graphicsPanel_left.y11=y11;
 		graphicsPanel_left.y2=y2;
@@ -237,6 +235,10 @@ public class Main{
 							graphicsPanel_up.x11=x11-20*i;
 							graphicsPanel_up.x2=x2-20*i;
 							graphicsPanel_up.x22=x22-20*i;
+							graphicsPanel_up.y1=y1+20;
+							graphicsPanel_up.y11=y11+20;
+							graphicsPanel_up.y2=y2+20;
+							graphicsPanel_up.y22=y22+20;
 						}
 						if(up==true && down != true && left!=true && right!=true){
 							graphicsPanel.setVisible(false);
@@ -245,6 +247,10 @@ public class Main{
 							graphicsPanel_down.x11=x11-20*i;
 							graphicsPanel_down.x2=x2-20*i;
 							graphicsPanel_down.x22=x22-20*i;
+							graphicsPanel_down.y1=y1-20;
+							graphicsPanel_down.y11=y11-20;
+							graphicsPanel_down.y2=y2-20;
+							graphicsPanel_down.y22=y22-20;
 						}
 						if(up!=true && down != true && left!=true && right==true){
 							graphicsPanel.setVisible(false);
@@ -290,6 +296,10 @@ public class Main{
 											graphicsPanel_up.x11=x11-20*i;
 											graphicsPanel_up.x2=x2-20*i;
 											graphicsPanel_up.x22=x22-20*i;
+											graphicsPanel_up.y1=y1+20;
+											graphicsPanel_up.y11=y11+20;
+											graphicsPanel_up.y2=y2+20;
+											graphicsPanel_up.y22=y22+20;
 										}
 										if(up!=true && down == true && left!=true && right!=true){
 											graphicsPanel.setVisible(false);
@@ -298,6 +308,10 @@ public class Main{
 											graphicsPanel_down.x11=x11-20*i;
 											graphicsPanel_down.x2=x2-20*i;
 											graphicsPanel_down.x22=x22-20*i;
+											graphicsPanel_down.y1=y1-20;
+											graphicsPanel_down.y11=y11-20;
+											graphicsPanel_down.y2=y2-20;
+											graphicsPanel_down.y22=y22-20;
 										}
 										if(up!=true && down != true && left==true && right!=true){
 											graphicsPanel.setVisible(false);
