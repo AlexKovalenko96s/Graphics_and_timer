@@ -21,6 +21,8 @@ public class Main{
 	static GraphicsPanel_down graphicsPanel_down = new GraphicsPanel_down();
 	static Boolean up = false;
 	static Boolean down = false;
+	static Boolean left = false;
+	static Boolean right = false;
 	static int x1=500;
 	static int y1=50;
 	static int x11=510;
@@ -59,62 +61,62 @@ public class Main{
 
 		f.addKeyListener(new KeyAdapter() {
 			public void keyReleased(KeyEvent e) {
-				if (graphicsPanel.isVisible() != true) {
-					t.schedule(new TimerTask() {
-
-						@Override
-						public void run() {
-							graphicsPanel_down.setVisible(false);
-							graphicsPanel_up.setVisible(false);
-							graphicsPanel_left.setVisible(false);
-							graphicsPanel_right.setVisible(false);
-							graphicsPanel.setVisible(true);
-							t.schedule(new TimerTask() {
-
-								@Override
-								public void run() {
-									graphicsPanel.setVisible(false);
-									if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-										graphicsPanel_down.setVisible(true);
-										down = true;
-										up = false;
-										graphicsPanel_down.x1=x1-20*i;
-										graphicsPanel_down.x11=x11-20*i;
-										graphicsPanel_down.x2=x2-20*i;
-										graphicsPanel_down.x22=x22-20*i;
-									}
-									if (e.getKeyCode() == KeyEvent.VK_UP) {
-										graphicsPanel_up.setVisible(true);
-										up = true;
-										down = false;
-										graphicsPanel_up.setVisible(true);
-										graphicsPanel_down.x1=x1-20*i;
-										graphicsPanel_down.x11=x11-20*i;
-										graphicsPanel_down.x2=x2-20*i;
-										graphicsPanel_down.x22=x22-20*i;
-									}
-									if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-										graphicsPanel_left.setVisible(true);
-										graphicsPanel_left.x1=x1-20*i;
-										graphicsPanel_left.x11=x11-20*i;
-										graphicsPanel_left.x2=x2-20*i;
-										graphicsPanel_left.x22=x22-20*i;
-									}
-									if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-										graphicsPanel_right.setVisible(true);
-										graphicsPanel_right.x1=x1-20*i;
-										graphicsPanel_right.x11=x11-20*i;
-										graphicsPanel_right.x2=x2-20*i;
-										graphicsPanel_right.x22=x22-20*i;
-									}
-									i++;
-									wait_kachka();
-								}
-							}, 1000);
-						}
-					}, 1000);
-
-				}
+//				if (graphicsPanel.isVisible() != true) {
+//					t.schedule(new TimerTask() {
+//
+//						@Override
+//						public void run() {
+//							graphicsPanel_down.setVisible(false);
+//							graphicsPanel_up.setVisible(false);
+//							graphicsPanel_left.setVisible(false);
+//							graphicsPanel_right.setVisible(false);
+//							graphicsPanel.setVisible(true);					
+//							t.schedule(new TimerTask() {
+//
+//								@Override
+//								public void run() {
+//									graphicsPanel.setVisible(false);
+//									if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+//										graphicsPanel_down.setVisible(true);
+//										down = true;
+//										up = false;
+//										graphicsPanel_down.x1=x1-20*i;
+//										graphicsPanel_down.x11=x11-20*i;
+//										graphicsPanel_down.x2=x2-20*i;
+//										graphicsPanel_down.x22=x22-20*i;
+//									}
+//									if (e.getKeyCode() == KeyEvent.VK_UP) {
+//										graphicsPanel_up.setVisible(true);
+//										up = true;
+//										down = false;
+//										graphicsPanel_up.setVisible(true);
+//										graphicsPanel_down.x1=x1-20*i;
+//										graphicsPanel_down.x11=x11-20*i;
+//										graphicsPanel_down.x2=x2-20*i;
+//										graphicsPanel_down.x22=x22-20*i;
+//									}
+//									if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+//										graphicsPanel_left.setVisible(true);
+//										graphicsPanel_left.x1=x1-20*i;
+//										graphicsPanel_left.x11=x11-20*i;
+//										graphicsPanel_left.x2=x2-20*i;
+//										graphicsPanel_left.x22=x22-20*i;
+//									}
+//									if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+//										graphicsPanel_right.setVisible(true);
+//										graphicsPanel_right.x1=x1-20*i;
+//										graphicsPanel_right.x11=x11-20*i;
+//										graphicsPanel_right.x2=x2-20*i;
+//										graphicsPanel_right.x22=x22-20*i;
+//									}
+//									i++;
+//									wait_kachka();
+//								}
+//							}, 1000);
+//						}
+//					}, 1000);
+//
+//				}
 				if (graphicsPanel.isVisible() == true) {
 					
 					t.schedule(new TimerTask() {
@@ -131,16 +133,19 @@ public class Main{
 								graphicsPanel_down.x22=x22-20*i;
 								down = true;
 								up = false;
+								left = false;
+								right = false;
 							}
 							if (e.getKeyCode() == KeyEvent.VK_UP) {
 								graphicsPanel_up.setVisible(true);
-								graphicsPanel_down.x1=x1-20*i;
-								graphicsPanel_down.x11=x11-20*i;
-								graphicsPanel_down.x2=x2-20*i;
-								graphicsPanel_down.x22=x22-20*i;
+								graphicsPanel_up.x1=x1-20*i;
+								graphicsPanel_up.x11=x11-20*i;
+								graphicsPanel_up.x2=x2-20*i;
+								graphicsPanel_up.x22=x22-20*i;
 								up = true;
 								down = false;
-								
+								left = false;
+								right = false;
 							}
 							if (e.getKeyCode() == KeyEvent.VK_LEFT) {
 								graphicsPanel_left.setVisible(true);
@@ -148,6 +153,10 @@ public class Main{
 								graphicsPanel_left.x11=x11-20*i;
 								graphicsPanel_left.x2=x2-20*i;
 								graphicsPanel_left.x22=x22-20*i;
+								up = false;
+								down = false;
+								left = true;
+								right = false;
 							}
 							if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
 								graphicsPanel_right.setVisible(true);
@@ -155,12 +164,16 @@ public class Main{
 								graphicsPanel_right.x11=x11-20*i;
 								graphicsPanel_right.x2=x2-20*i;
 								graphicsPanel_right.x22=x22-20*i;
+								up = false;
+								down = false;
+								left = false;
+								right = true;
 							}
 							
 							i++;
 							wait_kachka();
 						}
-					}, 1000);
+					}, 800);
 				}
 				f.setVisible(true);
 			}
@@ -174,6 +187,26 @@ public class Main{
 		graphicsPanel.y2=y2;
 		graphicsPanel.x22=x22;
 		graphicsPanel.y22=y22;
+		
+		graphicsPanel_up.y1=y1;
+		graphicsPanel_up.y11=y11;
+		graphicsPanel_up.y2=y2;
+		graphicsPanel_up.y22=y22;
+		
+		graphicsPanel_down.y1=y1;
+		graphicsPanel_down.y11=y11;
+		graphicsPanel_down.y2=y2;
+		graphicsPanel_down.y22=y22;
+		
+		graphicsPanel_left.y1=y1;
+		graphicsPanel_left.y11=y11;
+		graphicsPanel_left.y2=y2;
+		graphicsPanel_left.y22=y22;
+		
+		graphicsPanel_right.y1=y1;
+		graphicsPanel_right.y11=y11;
+		graphicsPanel_right.y2=y2;
+		graphicsPanel_right.y22=y22;
 		f.setVisible(true);
 	}
 	
@@ -197,7 +230,7 @@ public class Main{
 
 					@Override
 					public void run() {
-						if(up!=true && down == true){
+						if(up!=true && down == true && left!=true && right!=true){
 							graphicsPanel.setVisible(false);
 							graphicsPanel_up.setVisible(true);
 							graphicsPanel_up.x1=x1-20*i;
@@ -205,13 +238,29 @@ public class Main{
 							graphicsPanel_up.x2=x2-20*i;
 							graphicsPanel_up.x22=x22-20*i;
 						}
-						if(up==true && down != true){
+						if(up==true && down != true && left!=true && right!=true){
 							graphicsPanel.setVisible(false);
 							graphicsPanel_down.setVisible(true);
 							graphicsPanel_down.x1=x1-20*i;
 							graphicsPanel_down.x11=x11-20*i;
 							graphicsPanel_down.x2=x2-20*i;
 							graphicsPanel_down.x22=x22-20*i;
+						}
+						if(up!=true && down != true && left!=true && right==true){
+							graphicsPanel.setVisible(false);
+							graphicsPanel_left.setVisible(true);
+							graphicsPanel_left.x1=x1-20*i;
+							graphicsPanel_left.x11=x11-20*i;
+							graphicsPanel_left.x2=x2-20*i;
+							graphicsPanel_left.x22=x22-20*i;
+						}
+						if(up!=true && down != true && left==true && right!=true){
+							graphicsPanel.setVisible(false);
+							graphicsPanel_right.setVisible(true);
+							graphicsPanel_right.x1=x1-20*i;
+							graphicsPanel_right.x11=x11-20*i;
+							graphicsPanel_right.x2=x2-20*i;
+							graphicsPanel_right.x22=x22-20*i;
 						}
 						
 						i++;
@@ -222,6 +271,8 @@ public class Main{
 								graphicsPanel.setVisible(true);
 								graphicsPanel_up.setVisible(false);
 								graphicsPanel_down.setVisible(false);
+								graphicsPanel_left.setVisible(false);
+								graphicsPanel_right.setVisible(false);
 								graphicsPanel.x1=x1-20*i;
 								graphicsPanel.x11=x11-20*i;
 								graphicsPanel.x2=x2-20*i;
@@ -232,7 +283,7 @@ public class Main{
 									
 									@Override
 									public void run() {
-										if(up==true && down != true){
+										if(up==true && down != true && left!=true && right!=true){
 											graphicsPanel.setVisible(false);
 											graphicsPanel_up.setVisible(true);
 											graphicsPanel_up.x1=x1-20*i;
@@ -240,13 +291,29 @@ public class Main{
 											graphicsPanel_up.x2=x2-20*i;
 											graphicsPanel_up.x22=x22-20*i;
 										}
-										if(up!=true && down == true){
+										if(up!=true && down == true && left!=true && right!=true){
 											graphicsPanel.setVisible(false);
 											graphicsPanel_down.setVisible(true);
 											graphicsPanel_down.x1=x1-20*i;
 											graphicsPanel_down.x11=x11-20*i;
 											graphicsPanel_down.x2=x2-20*i;
 											graphicsPanel_down.x22=x22-20*i;
+										}
+										if(up!=true && down != true && left==true && right!=true){
+											graphicsPanel.setVisible(false);
+											graphicsPanel_left.setVisible(true);
+											graphicsPanel_left.x1=x1-20*i;
+											graphicsPanel_left.x11=x11-20*i;
+											graphicsPanel_left.x2=x2-20*i;
+											graphicsPanel_left.x22=x22-20*i;
+										}
+										if(up!=true && down != true && left!=true && right==true){
+											graphicsPanel.setVisible(false);
+											graphicsPanel_right.setVisible(true);
+											graphicsPanel_right.x1=x1-20*i;
+											graphicsPanel_right.x11=x11-20*i;
+											graphicsPanel_right.x2=x2-20*i;
+											graphicsPanel_right.x22=x22-20*i;
 										}
 										i++;
 										
@@ -257,6 +324,8 @@ public class Main{
 												graphicsPanel.setVisible(true);
 												graphicsPanel_down.setVisible(false);
 												graphicsPanel_up.setVisible(false);
+												graphicsPanel_left.setVisible(false);
+												graphicsPanel_right.setVisible(false);
 												graphicsPanel.x1=x1-20*i;
 												graphicsPanel.x11=x11-20*i;
 												graphicsPanel.x2=x2-20*i;
@@ -271,6 +340,6 @@ public class Main{
 					}
 				}, 800);
 			}
-		}, 5000);
+		}, 800);
 	}
 }
