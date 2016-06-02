@@ -22,10 +22,10 @@ public class GraphicsPanel_up extends JPanel {
 		g2.setColor(Color.ORANGE);
 		g2.fillOval(200, 260, 240, 80);// остров
 		g2.setColor(Color.YELLOW);
-		g2.fillOval(60, 60, 80, 80);// солнышко
+		g2.fillOval(60, 90, 80, 80);// солнышко
 		g2.setColor(Color.WHITE);
-		g2.fillOval(40, 95, 70, 70);// облако(круглое)
-		g2.fillOval(40, 120, 200, 50);// облако(длинное)
+		g2.fillOval(40, 125, 70, 70);// облако(круглое)
+		g2.fillOval(40, 150, 200, 50);// облако(длинное)
 		g2.setColor(Color.GRAY);
 		g2.fillRoundRect(310, 170, 20, 120, 5, 5);// ствол
 		g2.setColor(Color.GREEN);
